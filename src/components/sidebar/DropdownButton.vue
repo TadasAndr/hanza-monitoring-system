@@ -22,6 +22,7 @@
       <div v-show="isExpanded" class="accordion-content">
         <div class="DashboardContentDiv">
           <link-button
+            active-class="active-link"
             v-for="item in nestedLinks"
             :key="item.id"
             :name="item.name"
@@ -204,7 +205,6 @@ video {
   font-size: 16px;
   color: rgb(185, 180, 199);
   display: block;
-  border-bottom: solid 1px rgb(217, 217, 217);
   margin: 15px 10px;
   height: 30px;
   text-align: bottom;
