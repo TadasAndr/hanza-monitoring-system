@@ -1,28 +1,22 @@
 <template>
   <div class="sidebarBackground">
-    <div class="logoDiv"><img class="hanzaLogo" src="@/assets/HanzaLogoWhite.png" alt="Hanza Logo" /></div>
-    <sidebar-item></sidebar-item>
-    
+    <div class="logoDiv"><img class="hanzaLogo" src="@/assets/HanzaLogoWhite.png" alt="Hanza Logo" /></div>    
+    <dropdown-button :nestedLinks="items" name="Dashboards"></dropdown-button>
   </div>
 </template>
 
 <script>
-import SidebarItem from "./SidebarItem.vue";
+import DropdownButton from './DropdownButton.vue';
 export default {
-  data() {
-    return {
-      isVisible: false,
-      name: "Tadas",
-    };
+  props: {
+    items: {
+        type: Array,
+        required: false
+    }
   },
   name: "BaseSidebar",
   components: {
-    SidebarItem,
-  },
-  methods: {
-    setVisibility: () => {
-      this.isVisible = !this.isVisible;
-    },
+    DropdownButton
   },
 };
 </script>

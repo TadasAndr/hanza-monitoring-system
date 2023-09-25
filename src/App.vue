@@ -1,14 +1,11 @@
 <template>
-    <base-sidebar></base-sidebar>
-
+    <router-view></router-view>
 </template>
 
 <script>
-import BaseSidebar from './components/sidebar/BaseSidebar.vue';
 export default {
   name: 'App',
   components: {
-    BaseSidebar,
   }
 }
 </script>
