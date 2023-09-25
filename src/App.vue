@@ -1,7 +1,6 @@
 <template>
-  <div>
     <base-sidebar></base-sidebar>
-  </div>
+
 </template>
 
 <script>
@@ -16,11 +15,9 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 250px 1fr; 
+  grid-gap: 0px;
 }
+
 </style>
