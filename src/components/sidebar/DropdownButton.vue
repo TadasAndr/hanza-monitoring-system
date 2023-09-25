@@ -1,7 +1,7 @@
 <template>
   <div class="SidebarItems">
     <div class="accordion-item">
-      <div class="accordion-header" @click="toggleExpanded()">
+      <div class="accordion-header" @click="toggleExpanded">
         <div class="header-content">
           <img
             class="DashboardIcon"
@@ -14,7 +14,7 @@
             :class="{ isExpanded: isExpanded }"
             src="@/assets/dropdownArrow.png"
             alt="Dropdown Arrow"
-            @click="toggleExpanded()"
+            @click="toggleExpanded"
           />
         </div>
         <i :class="['icon', isExpanded ? 'icon-minus' : 'icon-plus']"></i>
