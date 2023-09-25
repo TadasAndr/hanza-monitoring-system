@@ -25,13 +25,15 @@ export default {
 .logoDiv{
 width: 100%;
 height: 10%;
-text-align: center;
-padding: 10% 0;
+display: flex;
+  justify-content: center; 
+  align-items: center;
+
 }
 
 .hanzaLogo {
   width: 60%;
-  height: 50%;
+  height: 40%;
 
 }
 .sidebarBackground {
