@@ -1,23 +1,43 @@
 <template>
-  <router-link :class="{ active: isLinkActive }" class="DashboardContent" :to="normalizeRoute">{{
-    name
-  }}</router-link>
+  <router-link
+    :class="{ active: isLinkActive }"
+    class="DashboardContent"
+    :to="normalizeRoute"
+    >
+    {{ dashboardItem.name }}</router-link
+  >
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      isChecked: false,
+    }
+  },
   props: {
-    name: {
-      type: String,
+    dashboardItem: {
+      type: Object,
       required: true,
     },
   },
+  methods: {
+    handleChange() {
+      if (this.isChecked) {
+        this.$store.commit("addDashboardToSlideshow", true)
+      } else {
+        console.log("implement")
+      }
+    }
+  },
   computed: {
     normalizeRoute() {
-      return `/dashboard/${this.name.toLowerCase().replace(" ", "-")}`;
+      return `/dashboard/${this.dashboardItem.name.toLowerCase().replace(" ", "-")}`;
     },
     isLinkActive() {
-      return this.$route.params.name === this.name.toLowerCase().replace(" ", "-");
+      return (
+        this.$route.params.name === this.dashboardItem.name.toLowerCase().replace(" ", "-")
+      );
     },
   },
 };

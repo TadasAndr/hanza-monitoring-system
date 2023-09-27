@@ -2,25 +2,25 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    count: 0,
+    isSlideSelection: false,
+    dashboardsInSlideshow: [],
   },
   mutations: {
-    increment(state) {
-      state.count++;
+    toggleSlideSelection(state, payload) {
+        state.isSlideSelection = payload
+        console.log(state.isSlideSelection)
     },
-    decrement(state) {
-      state.count--;
-    }
-  },
-  actions: {
-    increment(context) {
-      context.commit('increment');
+    addDashboardToSlideshow(state, payload) {
+        state.dashboardsInSlideshow.push(payload)
     },
-    decrement(context) {
-      context.commit('decrement');
+    removeDashboardFromSlideshow(state, payload) {
+        let index = state.dashboardsInSlideshow.findIndex(item => item.id === payload);
+        state.dashboardsInSlideshow.splice(index, 1)
+    },
+    resetDashboardSlideshow(state) {
+        state.dashboardsInSlideshow = []
     }
   },
   getters: {
-    count: state => state.count,
   },
 });

@@ -12,10 +12,17 @@
         active-class="active-link"
         v-for="item in items"
         :key="item.id"
-        :name="item.name"
+        :dashboardItem="item"
       ></link-button>
     </dropdown-button>
-    <dropdown-button name="Settings"> </dropdown-button>
+    <dropdown-button name="Settings">
+      <div class="d-flex align-items-center justify-content-center">
+        <div>
+          <p class="custom-font d-inline me-1">Slide selection mode</p>
+          <input type="checkbox" v-model="isChecked" @change="handleChange" />
+        </div>
+      </div>
+    </dropdown-button>
   </div>
 </template>
 
@@ -23,16 +30,37 @@
 import LinkButton from "./LinkButton.vue";
 import DropdownButton from "./DropdownButton.vue";
 export default {
+  data() {
+    return {
+      isChecked: false,
+      lastPath: null,
+    };
+  },
+  methods: {
+    handleChange() {
+      this.$store.commit("toggleSlideSelection", this.isChecked);
+      
+      if (this.isChecked) {
+        if (this.$route.path !== "/dashboard/edit") {
+          this.lastPath = this.$route.path;
+        }
+        this.$router.push("/dashboard/edit");
+      } else {
+        this.lastPath ? this.$router.push(this.lastPath) : this.$router.go(-1);
+      }
+      
+      console.log(this.lastPath);
+    },
+  },
   props: {
     items: {
       type: Array,
       required: false,
     },
   },
-  name: "BaseSidebar",
   components: {
     DropdownButton,
-    LinkButton
+    LinkButton,
   },
 };
 </script>
