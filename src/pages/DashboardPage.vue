@@ -46,6 +46,7 @@ export default {
           name: "Plasma",
           reportLink:
             "https://app.powerbi.com/reportEmbed?reportId=b8c31e22-ae4c-4ccf-ae28-7a751d33a386&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
+          imageSrc: null,
         },
         {
           id: 2,
