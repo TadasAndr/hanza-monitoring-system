@@ -16,11 +16,12 @@
       ></link-button>
     </dropdown-button>
     <dropdown-button name="Settings">
-      <div class="d-flex align-items-center justify-content-center">
+      <div class="d-flex flex-column align-items-center justify-content-center">
         <div>
           <p class="custom-font d-inline me-1">Slide selection mode</p>
           <input type="checkbox" v-model="isChecked" @change="handleChange" />
         </div>
+        <button type="button" class="btn btn-warning mt-3">Start slideshow</button>
       </div>
     </dropdown-button>
   </div>
@@ -48,7 +49,6 @@ export default {
       } else {
         this.lastPath ? this.$router.push(this.lastPath) : this.$router.go(-1);
       }
-      
       console.log(this.lastPath);
     },
   },
