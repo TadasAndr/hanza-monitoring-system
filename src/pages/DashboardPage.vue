@@ -3,7 +3,7 @@
   <div
     v-for="item in linkItems"
     :key="item.id"
-    v-show="currentDashboard?.name === item.name"
+    v-show="currentDashboard?.id === item.id"
   >
     <iframe
       style="margin: auto auto"
@@ -15,13 +15,18 @@
       allowFullScreen="true"
     ></iframe>
   </div>
-  <div v-if="this.$store.state.isSlideSelection" style="margin: auto auto" class="logo-animation">
+  <div
+    v-if="this.$store.state.isSlideSelection"
+    style="margin: auto auto"
+    class="logo-animation"
+  >
     <img src="..\assets\hanza_logo.jpeg" alt="Logo" />
   </div>
 </template>
 
 <script>
 import BaseSidebar from "../components/sidebar/BaseSidebar.vue";
+import { EventBus } from "@/event-bus";
 
 export default {
   components: {
@@ -46,9 +51,7 @@ export default {
   data() {
     return {
       currentDashboard: "",
-      dashboardsToShowInSlides: [1, 3, 2],
-      intervalInMs: 5000,
-      slideInterval: null,
+      intervalInstance: null,
       linkItems: [
         {
           id: 1,
@@ -117,13 +120,26 @@ export default {
         })
         .join(" ");
     },
+    changeSlide() {
+      this.currentDashboard =
+        this.$store.state.dashboardsInSlideshow[this.$store.state.currentSlide];
+      this.$store.commit("incrementSlide");
+    },
     startSlideShow() {
-      this.slideInterval = setInterval(() => {
-        // not implemented
-      }, this.intervalInMs);
+      if (this.$store.state.dashboardsInSlideshow.length > 1) {
+        this.$store.commit("toggleSlideSelection", false);
+        this.$router.push("/dashboard/slideshow");
+        this.intervalInstance = setInterval(() => {
+          this.changeSlide();
+          console.log("next slide");
+        }, this.$store.state.intervalsBetweenSlides);
+      } else {
+        console.log("slideshow should contain at least 2 dashboards!");
+      }
     },
     stopSlideShow() {
-      clearInterval(this.slideInterval);
+      clearInterval(this.intervalInstance);
+      this.$store.commit('resetCurrentSlide')
     },
   },
   created() {
@@ -133,18 +149,26 @@ export default {
     this.currentDashboard = linkItem;
     console.log(this.currentDashboard);
   },
+  mounted() {
+    EventBus.on("start-slideshow", this.startSlideShow);
+    EventBus.on("stop-slideshow", this.stopSlideShow);
+  },
+  beforeUnmount() {
+    EventBus.off("start-slideshow");
+    EventBus.off("stop-slideshow");
+  },
 };
 </script>
 
 <style scoped>
-
 .logo-animation {
   display: inline-block;
   animation: zoomInOut 3s infinite;
 }
 
 @keyframes zoomInOut {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
