@@ -1,7 +1,11 @@
 <template>
- <base-sidebar :items="linkItems"></base-sidebar>
-  <div v-for="item in linkItems" :key="item.id" v-show="currentDashboard?.name === item.name">
-      <iframe
+  <base-sidebar :items="linkItems"></base-sidebar>
+  <div
+    v-for="item in linkItems"
+    :key="item.id"
+    v-show="currentDashboard?.name === item.name"
+  >
+    <iframe
       style="margin: auto auto"
       :title="item.name"
       width="100%"
@@ -10,6 +14,9 @@
       frameborder="0"
       allowFullScreen="true"
     ></iframe>
+  </div>
+  <div v-if="this.$store.state.isSlideSelection" style="margin: auto auto" class="logo-animation">
+    <img src="..\assets\hanza_logo.jpeg" alt="Logo" />
   </div>
 </template>
 
@@ -29,11 +36,13 @@ export default {
     dashboardName: {
       immediate: true,
       handler(newName) {
-        const linkItem = this.linkItems.find(l => l.name === this.normalizeUrlToTitle(newName));
-        this.currentDashboard = linkItem ? linkItem: null;
-      },
+        const linkItem = this.linkItems.find(
+          (l) => l.name === this.normalizeUrlToTitle(newName)
+        );
+        this.currentDashboard = linkItem ? linkItem : null;
       },
     },
+  },
   data() {
     return {
       currentDashboard: "",
@@ -111,19 +120,35 @@ export default {
     startSlideShow() {
       this.slideInterval = setInterval(() => {
         // not implemented
-      }, this.intervalInMs)
+      }, this.intervalInMs);
     },
     stopSlideShow() {
-      clearInterval(this.slideInterval)
-    }
+      clearInterval(this.slideInterval);
+    },
   },
   created() {
-    var linkItem = this.linkItems.find(l => l.name === this.normalizeUrlToTitle(this.$route.params.name))
+    var linkItem = this.linkItems.find(
+      (l) => l.name === this.normalizeUrlToTitle(this.$route.params.name)
+    );
     this.currentDashboard = linkItem;
-    console.log(this.currentDashboard)
-  }
+    console.log(this.currentDashboard);
+  },
 };
 </script>
 
 <style scoped>
+
+.logo-animation {
+  display: inline-block;
+  animation: zoomInOut 3s infinite;
+}
+
+@keyframes zoomInOut {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
 </style>
