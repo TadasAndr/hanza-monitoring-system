@@ -100,7 +100,7 @@ export default {
     },
     startSlideShow() {
       this.slideInterval = setInterval(() => {
-
+        // not implemented
       }, this.intervalInMs)
     },
     stopSlideShow() {
