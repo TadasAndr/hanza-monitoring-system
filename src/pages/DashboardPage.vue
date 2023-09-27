@@ -1,14 +1,16 @@
 <template>
-  <base-sidebar :items="linkItems"></base-sidebar>
-  <iframe
-    style="margin: auto auto"
-    title="test"
-    width="1140"
-    height="541.25"
-    :src="currentDashboard"
-    frameborder="0"
-    allowFullScreen="true"
-  ></iframe>
+ <base-sidebar :items="linkItems"></base-sidebar>
+  <div v-for="item in linkItems" :key="item.id" v-show="currentDashboard === item.name">
+    <iframe
+      style="margin: auto auto"
+      :title="item.name"
+      width="100%"
+      height="100%"
+      :src="item.reportLink"
+      frameborder="0"
+      allowFullScreen="true"
+    ></iframe>
+  </div>
 </template>
 
 <script>
@@ -27,12 +29,11 @@ export default {
     dashboardName: {
       immediate: true,
       handler(newName) {
-        var linkItem = this.linkItems.find(l => l.name === this.normalizeUrlToTitle(newName))
-        this.currentDashboard = linkItem?.reportLink;
-        console.log(this.normalizeUrlToTitle(newName));
+        const linkItem = this.linkItems.find(l => l.name === this.normalizeUrlToTitle(newName));
+        this.currentDashboard = linkItem ? linkItem.name : "";
+      },
       },
     },
-  },
   data() {
     return {
       currentDashboard: "",
