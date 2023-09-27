@@ -46,46 +46,55 @@ export default {
           name: "Plasma",
           reportLink:
             "https://app.powerbi.com/reportEmbed?reportId=b8c31e22-ae4c-4ccf-ae28-7a751d33a386&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
-          imageSrc: null,
+          imageSrc: "@/assets/plasma.svg",
         },
         {
           id: 2,
           name: "Bending",
           reportLink:
             "https://app.powerbi.com/reportEmbed?reportId=9096e9d3-9ce6-42ee-a0d0-85d997c6d223&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
-        },
+            imageSrc: "@/assets/bending.svg",
+          },
         {
           id: 3,
           name: "Machining",
-          reportLink: "https://app.powerbi.com/reportEmbed?reportId=f4eae29e-bf06-4a7b-b3d2-ccc9e2dcb1b8&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57"
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=f4eae29e-bf06-4a7b-b3d2-ccc9e2dcb1b8&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
+          imageSrc: "@/assets/Machining.svg",
         },
         {
           id: 4,
           name: "Welding",
+          imageSrc: "@/assets/Welding.svg",
         },
         {
           id: 5,
           name: "Wet Paint",
+          imageSrc: "@/assets/Paint.svg",
         },
         {
           id: 6,
           name: "Powder Paint",
+          imageSrc: "@/assets/Paint.svg",
         },
         {
           id: 7,
           name: "Assembly",
+          imageSrc: "@/assets/assembly.svg",
         },
         {
           id: 8,
           name: "Blast",
+          imageSrc: "@/assets/Blast.svg",
         },
         {
           id: 9,
           name: "Old Blast",
+          imageSrc: "@/assets/Blast.svg",
         },
         {
           id: 10,
           name: "Tank Wash",
+          imageSrc: "@/assets/Washer.svg",
         },
       ],
     };

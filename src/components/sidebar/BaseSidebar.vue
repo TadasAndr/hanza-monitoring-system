@@ -79,7 +79,7 @@ export default {
   height: 40%;
 }
 .sidebarBackground {
-  background-color: rgb(58, 32, 81);
+  background-color: rgb(26, 43, 76);
   height: 100vh;
   width: 226px;
 }
