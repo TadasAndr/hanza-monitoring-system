@@ -1,7 +1,7 @@
 <template>
  <base-sidebar :items="linkItems"></base-sidebar>
-  <div v-for="item in linkItems" :key="item.id" v-show="currentDashboard === item.name">
-    <iframe
+  <div v-for="item in linkItems" :key="item.id" v-show="currentDashboard?.name === item.name">
+      <iframe
       style="margin: auto auto"
       :title="item.name"
       width="100%"
@@ -30,13 +30,16 @@ export default {
       immediate: true,
       handler(newName) {
         const linkItem = this.linkItems.find(l => l.name === this.normalizeUrlToTitle(newName));
-        this.currentDashboard = linkItem ? linkItem.name : "";
+        this.currentDashboard = linkItem ? linkItem: null;
       },
       },
     },
   data() {
     return {
       currentDashboard: "",
+      dashboardsToShowInSlides: [1, 3, 2],
+      intervalInMs: 5000,
+      slideInterval: null,
       linkItems: [
         {
           id: 1,
@@ -95,10 +98,19 @@ export default {
         })
         .join(" ");
     },
+    startSlideShow() {
+      this.slideInterval = setInterval(() => {
+
+      }, this.intervalInMs)
+    },
+    stopSlideShow() {
+      clearInterval(this.slideInterval)
+    }
   },
-  mounted() {
+  created() {
     var linkItem = this.linkItems.find(l => l.name === this.normalizeUrlToTitle(this.$route.params.name))
-    this.currentDashboard = linkItem?.reportLink;
+    this.currentDashboard = linkItem;
+    console.log(this.currentDashboard)
   }
 };
 </script>

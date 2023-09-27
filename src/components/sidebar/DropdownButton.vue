@@ -21,12 +21,7 @@
       </div>
       <div v-show="isExpanded" class="accordion-content">
         <div class="DashboardContentDiv">
-          <link-button
-            active-class="active-link"
-            v-for="item in nestedLinks"
-            :key="item.id"
-            :name="item.name"
-          ></link-button>
+          <slot> </slot>
         </div>
       </div>
     </div>
@@ -34,7 +29,6 @@
 </template>
 
 <script>
-import LinkButton from "./LinkButton.vue";
 export default {
   data() {
     return {
@@ -42,19 +36,16 @@ export default {
     };
   },
   props: {
-    nestedLinks: {
-      type: Array,
-      required: true,
-    },
     name: {
       type: String,
       required: true,
     },
+    iconPath: {
+      type: String,
+      required: false,
+    },
   },
   name: "DropdownButton",
-  components: {
-    LinkButton,
-  },
   methods: {
     toggleExpanded() {
       this.isExpanded = !this.isExpanded;
@@ -210,16 +201,15 @@ video {
   text-align: bottom;
 }
 
-.dropdownArrow{
+.dropdownArrow {
   vertical-align: middle;
   height: 12px;
-margin-left: 30px;
-pointer-events: none;
-
+  margin-left: 30px;
+  pointer-events: none;
 }
 .isExpanded {
   transform: rotate(180deg);
-  transition: transform 0s; 
+  transition: transform 0s;
   vertical-align: top;
   pointer-events: none;
 }
