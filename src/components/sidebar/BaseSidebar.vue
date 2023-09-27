@@ -3,7 +3,7 @@
     <div class="logoDiv">
       <img
         class="hanzaLogo"
-        src="@/assets/HanzaLogoWhite.png"
+        src="@/assets/HanzaLogo.svg"
         alt="Hanza Logo"
       />
     </div>
