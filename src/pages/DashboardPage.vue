@@ -57,57 +57,71 @@ export default {
           id: 1,
           name: "Plasma",
           reportLink:
-            "https://app.powerbi.com/reportEmbed?reportId=b8c31e22-ae4c-4ccf-ae28-7a751d33a386&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
+            "https://app.powerbi.com/reportEmbed?reportId=44b9c8ce-7eb1-4532-99b8-6c95bb32cf7e&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=plasma",
           imageSrc: "@/assets/plasma.svg",
         },
         {
           id: 2,
           name: "Bending",
           reportLink:
-            "https://app.powerbi.com/reportEmbed?reportId=9096e9d3-9ce6-42ee-a0d0-85d997c6d223&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
+            "https://app.powerbi.com/reportEmbed?reportId=44b9c8ce-7eb1-4532-99b8-6c95bb32cf7e&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=bending",
             imageSrc: "@/assets/bending.svg",
           },
         {
           id: 3,
           name: "Machining",
-          reportLink: "https://app.powerbi.com/reportEmbed?reportId=f4eae29e-bf06-4a7b-b3d2-ccc9e2dcb1b8&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
+          reportLink:
+            "https://app.powerbi.com/reportEmbed?reportId=44b9c8ce-7eb1-4532-99b8-6c95bb32cf7e&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=machining",
           imageSrc: "@/assets/Machining.svg",
         },
         {
           id: 4,
           name: "Welding",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=b5815e86-ad20-4202-872e-235a545e7f78&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=Welding",
           imageSrc: "@/assets/Welding.svg",
         },
         {
           id: 5,
           name: "Wet Paint",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=b5815e86-ad20-4202-872e-235a545e7f78&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=WetPaint",
           imageSrc: "@/assets/Paint.svg",
         },
         {
           id: 6,
           name: "Powder Paint",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=b5815e86-ad20-4202-872e-235a545e7f78&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=PowderPaint",
           imageSrc: "@/assets/Paint.svg",
         },
         {
           id: 7,
           name: "Assembly",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=9096e9d3-9ce6-42ee-a0d0-85d997c6d223&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
           imageSrc: "@/assets/assembly.svg",
         },
         {
           id: 8,
           name: "Blast",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=0e895359-499e-4de1-a95b-44a829ff4bd9&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=blast",
           imageSrc: "@/assets/Blast.svg",
         },
         {
           id: 9,
           name: "Old Blast",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=0e895359-499e-4de1-a95b-44a829ff4bd9&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=oldblast",
           imageSrc: "@/assets/Blast.svg",
         },
         {
           id: 10,
           name: "Tank Wash",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=b8c31e22-ae4c-4ccf-ae28-7a751d33a386&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
           imageSrc: "@/assets/Washer.svg",
         },
+        {
+          id: 11,
+          name: "Laser",
+          reportLink:
+            "https://app.powerbi.com/reportEmbed?reportId=44b9c8ce-7eb1-4532-99b8-6c95bb32cf7e&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=laser",
+        }
       ],
     };
   },
