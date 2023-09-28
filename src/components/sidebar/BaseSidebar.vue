@@ -9,6 +9,7 @@
         v-for="item in items"
         :key="item.id"
         :dashboardItem="item"
+        
       ></link-button>
     </dropdown-button>
     <dropdown-button name="Slideshow">

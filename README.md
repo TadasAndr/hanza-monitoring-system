@@ -1,24 +1,9 @@
-# hanza-monitoring-system
+<div class='documentName'>Red team's documentation</div>
 
-## Project setup
-```
-npm install
-```
+<p class='paragraphName'>Purpose of the project:</p>
+<p class='standartParagraph'>Main task of the project was to ​​​​​create data visualization reports for HANZA Mechanics Narva using Power BI. To complete the task we needed to create a web application which​​​​​​ would display the data collected from Power BI</p>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<p class='paragraphName'>Used technologies:</p>
+<li>Vue.js</li>
+<li>Power BI</li>

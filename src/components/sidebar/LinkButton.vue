@@ -17,6 +17,7 @@
   <span v-if="typeof currentSlideIndex === 'number' && currentSlideIndex >= 0">
     {{ currentSlideIndex + 1 }}
   </span>
+  <img :src=dashboardItem.imageSrc alt=""/>
     {{ dashboardItem.name }}
   </button>
 </template>

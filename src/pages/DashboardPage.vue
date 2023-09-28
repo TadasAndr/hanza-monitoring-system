@@ -28,6 +28,8 @@
 import BaseSidebar from "../components/sidebar/BaseSidebar.vue";
 import { EventBus } from "@/event-bus";
 
+
+
 export default {
   components: {
     BaseSidebar,
