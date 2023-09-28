@@ -136,7 +136,6 @@ export default {
 }
 
 @keyframes zoomInOut {
-
   0%,
   100% {
     transform: scale(1);

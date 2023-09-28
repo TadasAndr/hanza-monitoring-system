@@ -22,7 +22,7 @@
         </button>
       </div>
     </dropdown-button>
-    <div v-if="slideshowInProgress" style="position: absolute; bottom: 0; width: 226px;">
+    <div style="position: absolute; bottom: 0; width: 226px;">
       <button @click="collapseSidebar" class="collapse-button">
         <span class="custom-font fw-bold">Collapse</span>
         <img src="@/assets/dropdownArrow.png" class="dropdownArrow arrow-rotate-close">
