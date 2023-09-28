@@ -7,6 +7,7 @@
   <div v-if="this.$store.state.isSlideSelection" style="margin: auto auto" class="logo-animation">
     <img src="..\assets\hanza_logo.jpeg" alt="Logo" />
   </div>
+  <notifications speed="4000" closeOnClick max="3" width="400"/>
 </template>
 
 <script>
@@ -57,7 +58,12 @@ export default {
     startSlideShow() {
       if (this.$store.state.dashboardsInSlideshow.length > 1) {
         this.$store.commit("toggleSlideSelection", false);
+        this.$store.commit("toggleSlideshowInProgress", true);
         this.$router.push("/dashboard/slideshow");
+        this.$notify({
+          title: "Slideshow",
+          text: "Slideshow has started",
+        });
         this.intervalInstance = setInterval(() => {
           this.changeSlide();
           console.log("next slide");
@@ -67,8 +73,15 @@ export default {
       }
     },
     stopSlideShow() {
-      clearInterval(this.intervalInstance);
-      this.$store.commit('resetCurrentSlide')
+      if (this.$store.state.slideshowInProgress) {
+        this.$notify({
+          title: "Slideshow",
+          text: "Slideshow has ended",
+        });
+        clearInterval(this.intervalInstance);
+        this.$store.commit("toggleSlideshowInProgress", false);
+        this.$store.commit('resetCurrentSlide')
+      }
     },
   },
   created() {

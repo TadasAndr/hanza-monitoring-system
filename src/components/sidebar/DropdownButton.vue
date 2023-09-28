@@ -156,14 +156,15 @@ video {
 .custom-font {
   font-family: "Inter";
   font-size: 16px;
-  color: rgb(185, 180, 199);
+  color: var(--hanza-light-gray);
 }
 .accordion-header {
   display: flex;
   justify-content: space-evenly;
-  border-bottom: solid 1px rgb(217, 217, 217);
+  border-bottom: solid 1px var(--hanza-violet);
   padding: 10px;
 }
+
 .accordion-header:hover {
   cursor: pointer;
   background-color: rgba(99, 49, 143, 0.8);

@@ -92,9 +92,9 @@ export default {
 
 <style scoped>
 .active {
-  border-right: 6px solid rgba(255, 0, 0, 0.815);
+  border-right: 6px solid var(--hanza-red);
   border-radius: 5px;
-  color: red !important;
+  color: var(--hanza-red) !important;
 }
 
 .a-button {
@@ -106,6 +106,6 @@ export default {
 
 .machineSelected {
   padding-left: 3px;
-  border-left: 3px solid yellowgreen;
+  border-left: 3px solid var(--hanza-green);
 }
 </style>

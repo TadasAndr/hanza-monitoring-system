@@ -6,6 +6,7 @@ export default createStore({
     dashboardsInSlideshow: [],
     intervalsBetweenSlides: 2000,
     slideshowInProgress: false,
+    isSidebarCollapsed: false,
     currentSlide: 0,
   },
   mutations: {
@@ -42,7 +43,10 @@ export default createStore({
       }
     },
     resetCurrentSlide(state) {
-        state.currentSlide = 0
+      state.currentSlide = 0
+    },
+    setIsSidebarCollapsed(state, payload) {
+      state.isSidebarCollapsed = payload;
     }
   },
   getters: {},
