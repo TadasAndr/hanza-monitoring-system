@@ -44,6 +44,7 @@ export default {
   display: grid;
   grid-template-columns: 0px 1fr; 
   grid-gap: 0px;
+  height: 100vh;
 }
 
 body {
