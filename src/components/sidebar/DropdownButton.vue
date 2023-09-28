@@ -3,27 +3,20 @@
     <div class="accordion-item">
       <div class="accordion-header" @click="toggleExpanded">
         <div class="header-content">
-          <img
-            class="DashboardIcon"
-            src="@/assets/DashboardIcon.png"
-            alt="Hanza Logo"
-          />
+          <img class="DashboardIcon" src="@/assets/DashboardIcon.png" alt="Hanza Logo" />
           <span class="custom-font">{{ name }}</span>
-          <img
-            class="dropdownArrow"
-            :class="{ isExpanded: isExpanded }"
-            src="@/assets/dropdownArrow.png"
-            alt="Dropdown Arrow"
-            @click="toggleExpanded"
-          />
+          <img class="dropdownArrow" :class="{ isExpanded: isExpanded }" src="@/assets/dropdownArrow.png"
+            alt="Dropdown Arrow" @click="toggleExpanded" />
         </div>
         <i :class="['icon', isExpanded ? 'icon-minus' : 'icon-plus']"></i>
       </div>
-      <div v-show="isExpanded" class="accordion-content">
-        <div class="DashboardContentDiv">
-          <slot> </slot>
+      <transition name="dropdown-fade">
+        <div v-if="isExpanded" class="accordion-content">
+          <div class="DashboardContentDiv">
+            <slot> </slot>
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -143,12 +136,12 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* css reset */
 
 @font-face {
   font-family: "Inter";
-  src: url("~@/assets/Fonts/Inter-VariableFont_slnt,wght.ttf")
-    format("truetype");
+  src: url("~@/assets/Fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -158,17 +151,16 @@ video {
   font-size: 16px;
   color: var(--hanza-light-gray);
 }
+
 .accordion-header {
-  display: flex;
-  justify-content: space-evenly;
   border-bottom: solid 1px var(--hanza-violet);
   padding: 10px;
 }
 
 .accordion-header:hover {
   cursor: pointer;
-  background-color: rgba(99, 49, 143, 0.8);
-  font-weight: bold;
+  background-color: var(--hanza-blue);
+  color: white !important;
   border-radius: 5%;
 }
 
@@ -181,9 +173,10 @@ video {
 .accordion-content {
   margin: 10px 0;
 }
+
 .DashboardContent:hover {
-  background-color: rgba(99, 49, 143, 0.5);
-  font-weight: bold;
+  background-color: var(--hanza-blue);
+  color: white !important;
   border-radius: 5%;
 }
 
@@ -205,15 +198,25 @@ video {
 .dropdownArrow {
   vertical-align: middle;
   height: 12px;
-  margin-left: 30px;
+  margin: 5px 1rem;
   pointer-events: none;
-  float:right;
+  float: right !important;
 }
 
-.isExpanded {
-  transform: rotate(180deg);
-  transition: transform 0s;
-  vertical-align: top;
-  pointer-events: none;
+/* Standard style when dropdown is present */
+.dropdown-content {
+  overflow-y: hidden;
+  max-height: 300px; /* Adjust as needed */
+  transition: max-height 0.5s ease-in-out;
+}
+
+/* During the entering phase */
+.dropdown-fade-enter-from {
+  max-height: 0;
+}
+
+/* During the leaving (and also the initial state) */
+.dropdown-fade-leave-to {
+  max-height: 0;
 }
 </style>

@@ -79,7 +79,7 @@ export default {
         const index = this.$store.state.dashboardsInSlideshow.findIndex(
           (s) => s.id === this.dashboardItem.id
         );
-        this.isInSlideArray = index !== -1; // true if the item exists, false otherwise.
+        this.isInSlideArray = index !== -1;
         if (this.isInSlideArray) {
           this.currentSlideIndex = index;
         } else {

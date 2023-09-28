@@ -7,7 +7,7 @@
   <div v-if="this.$store.state.isSlideSelection" style="margin: auto auto" class="logo-animation">
     <img src="..\assets\hanza_logo.jpeg" alt="Logo" />
   </div>
-  <notifications speed="4000" closeOnClick max="3" width="400"/>
+  <notifications speed="4000" closeOnClick max="3" width="400" />
 </template>
 
 <script>
@@ -84,13 +84,6 @@ export default {
       }
     },
   },
-  created() {
-    var linkItem = this.linkItems.find(
-      (l) => l.name === this.normalizeUrlToTitle(this.$route.params.name)
-    );
-    this.currentDashboard = linkItem;
-    console.log(this.currentDashboard);
-  },
   mounted() {
     EventBus.on("start-slideshow", this.startSlideShow);
     EventBus.on("stop-slideshow", this.stopSlideShow);
@@ -106,11 +99,19 @@ export default {
         throw new Error('Network response was not ok ' + response.statusText);
       }
       this.linkItems = await response.json();
+
+      var linkItem = this.linkItems.find(
+        (l) => l.name === this.normalizeUrlToTitle(this.$route.params.name)
+      );
+      this.currentDashboard = linkItem;
+      console.log(this.currentDashboard);
+
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
   },
 };
+
 </script>
 
 <style scoped>
@@ -120,6 +121,7 @@ export default {
 }
 
 @keyframes zoomInOut {
+
   0%,
   100% {
     transform: scale(1);

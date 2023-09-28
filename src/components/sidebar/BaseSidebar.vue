@@ -149,8 +149,6 @@ export default {
   bottom: 0;
   left: 0;
   width: 226px;
-  border: none;
-  border-radius: 3px;
   z-index: 500;
 }
 
