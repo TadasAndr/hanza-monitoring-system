@@ -4,24 +4,20 @@
       <img class="hanzaLogo" src="@/assets/HanzaLogo.svg" alt="Hanza Logo" />
     </div>
     <dropdown-button name="Dashboards">
-      <link-button
-        active-class="active-link"
-        v-for="item in items"
-        :key="item.id"
-        :dashboardItem="item"
-      ></link-button>
+      <link-button active-class="active-link" v-for="item in items" :key="item.id" :dashboardItem="item"></link-button>
     </dropdown-button>
     <dropdown-button name="Slideshow">
       <div class="d-flex flex-column align-items-center justify-content-center">
-        <div>
-          <p class="custom-font d-inline me-1">Slide selection mode</p>
-          <input type="checkbox" v-model="isChecked" @change="handleChange" />
-        </div>
+        <label class="checkbox-container">
+          Select
+          <input :disabled="slideshowInProgress" type="checkbox" v-model="isChecked" @change="handleChange" class="checkbox-input" />
+          <span class="checkbox-label"></span>
+        </label>
         <div class="mt-3 d-flex flex-column">
           <label class="custom-font" for="interval">Interval (ms)</label>
           <input id="interval" type="number" v-model="intervalsBetweenSlides" />
         </div>
-        <button type="button" @click="startSlideShow" class="btn btn-success mt-3">
+        <button type="button" @click="startSlideShow" class="sidebar-button">
           Start slideshow
         </button>
       </div>
@@ -35,9 +31,9 @@
   </div>
   <div v-if="isSidebarCollapsed">
     <button @click="expandSidebar" class="expand-button collapse-button">
-        <span class="custom-font fw-bold">Expand</span>
-        <img src="@/assets/dropdownArrow.png" class="dropdownArrow arrow-rotate-open">
-      </button>
+      <span class="custom-font fw-bold">Expand</span>
+      <img src="@/assets/dropdownArrow.png" class="dropdownArrow arrow-rotate-open">
+    </button>
   </div>
 </template>
 
@@ -59,6 +55,7 @@ export default {
       this.$store.commit("toggleSlideSelection", this.isChecked);
 
       if (this.isChecked) {
+        EventBus.emit('open-dropdown')
         if (this.$route.path !== "/dashboard/edit") {
           this.lastPath = this.$route.path;
         }
@@ -145,7 +142,7 @@ export default {
 }
 
 .expand-button {
-  position:absolute;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 226px;
@@ -155,4 +152,59 @@ export default {
 .collapse-button:hover {
   background-color: var(--hanza-green);
 }
-</style>
+
+.sidebar-button {
+  width: 100%;
+  height: 50px;
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.sidebar-button:hover {
+  background-color: #005f5f;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: #ccc;
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.checkbox-container:hover {
+  background-color: #c1c1c1;
+}
+
+.checkbox-container .checkbox-input:checked+.checkbox-label {
+  background-color: #008CBA;
+}</style>

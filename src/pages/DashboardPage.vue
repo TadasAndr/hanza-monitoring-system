@@ -13,6 +13,7 @@
 <script>
 import BaseSidebar from "../components/sidebar/BaseSidebar.vue";
 import { EventBus } from "@/event-bus";
+import utils from '@/utils';
 
 export default {
   components: {
@@ -28,7 +29,7 @@ export default {
       immediate: true,
       handler(newName) {
         const linkItem = this.linkItems.find(
-          (l) => l.name === this.normalizeUrlToTitle(newName)
+          (l) => l.name === utils.normalizeUrlToTitle(newName)
         );
         this.currentDashboard = linkItem ? linkItem : null;
       },
@@ -42,14 +43,6 @@ export default {
     };
   },
   methods: {
-    normalizeUrlToTitle(inputStr) {
-      return inputStr
-        .split("-")
-        .map((word) => {
-          return word.charAt(0).toUpperCase() + word.slice(1);
-        })
-        .join(" ");
-    },
     changeSlide() {
       this.currentDashboard =
         this.$store.state.dashboardsInSlideshow[this.$store.state.currentSlide];
@@ -100,12 +93,16 @@ export default {
       }
       this.linkItems = await response.json();
 
-      var linkItem = this.linkItems.find(
-        (l) => l.name === this.normalizeUrlToTitle(this.$route.params.name)
-      );
-      this.currentDashboard = linkItem;
-      console.log(this.currentDashboard);
-
+      if (this.$route.params.name === 'initializing' || this.$route.params.name === 'edit') {
+        this.currentDashboard = this.linkItems[0];
+        this.$router.push(`/dashboard/${utils.normalizeTitleToUrl(this.linkItems[0].name)}`);
+      } else {
+        var linkItem = this.linkItems.find(
+          (l) => l.name === utils.normalizeUrlToTitle(this.$route.params.name)
+        );
+        this.currentDashboard = linkItem;
+        this.$router.push(`/dashboard/${utils.normalizeTitleToUrl(linkItem?.name)}`);
+      }
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }

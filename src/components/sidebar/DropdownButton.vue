@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import { EventBus } from '@/event-bus';
+
 export default {
   data() {
     return {
@@ -44,6 +46,12 @@ export default {
       this.isExpanded = !this.isExpanded;
     },
   },
+  mounted() {
+    EventBus.on("open-dropdown", () => { this.isExpanded = true })
+  },
+  beforeUnmount() {
+    EventBus.off("open-dropdown")
+  }
 };
 </script>
 
