@@ -18,8 +18,8 @@
             class="checkbox-input" />
           <span class="checkbox-label"></span>
         </label>
-        <button type="button" @click="startSlideShow" class="sidebar-button">
-          Start slideshow
+        <button type="button" @click="toggleSlideshow" class="sidebar-button">
+          {{ slideshowButtonText }}
         </button>
       </div>
     </dropdown-button>
@@ -49,6 +49,7 @@ export default {
     return {
       isChecked: false,
       lastPath: null,
+      slideshowButtonText: "Start slideshow"
     };
   },
   methods: {
@@ -66,8 +67,12 @@ export default {
       }
       console.log(this.lastPath);
     },
-    startSlideShow() {
-      EventBus.emit('start-slideshow');
+    toggleSlideshow() {
+      if (this.slideshowInProgress) {
+        EventBus.emit('stop-slideshow');
+      } else {
+        EventBus.emit('start-slideshow');
+      }
     },
     collapseSidebar() {
       this.$store.commit('setIsSidebarCollapsed', true)
@@ -92,6 +97,13 @@ export default {
       return this.$store.state.isSidebarCollapsed;
     }
   },
+  watch: {
+    slideshowInProgress: {
+      handler() {
+        this.isChecked = false;
+      }
+    }
+  },
   props: {
     items: {
       type: Array,
@@ -102,6 +114,14 @@ export default {
     DropdownButton,
     LinkButton,
   },
+  mounted() {
+    EventBus.on("change-slideshow-button-text", (text) => {
+      this.slideshowButtonText = text;
+    })
+  },
+  beforeUnmount() {
+    EventBus.off("change-slideshow-button-text");
+  }
 };
 </script>
 
@@ -123,6 +143,7 @@ export default {
   background-color: var(--hanza-dark-blue);
   height: 100vh;
   width: 226px;
+  overflow-y: auto;
 }
 
 .arrow-rotate-close {

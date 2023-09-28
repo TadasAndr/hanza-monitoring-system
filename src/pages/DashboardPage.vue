@@ -44,34 +44,52 @@ export default {
   },
   methods: {
     changeSlide() {
+      console.log('changeSlide called');
       this.currentDashboard =
         this.$store.state.dashboardsInSlideshow[this.$store.state.currentSlide]; 
       this.$store.commit("incrementSlide");
     },
     startSlideShow() {
       if (this.$store.state.dashboardsInSlideshow.length > 1) {
-        this.$store.commit("toggleSlideSelection", false);
-        this.$store.commit("toggleSlideshowInProgress", true);
-        this.$router.push("/dashboard/slideshow");
-        this.$notify({
-          title: "Slideshow",
-          text: "Slideshow has started",
-        });
-        this.intervalInstance = setInterval(() => {
+        if (this.intervalInstance === null) {
+          EventBus.emit('change-slideshow-button-text', "Stop slideshow")
+          this.$store.commit("toggleSlideSelection", false);
+          this.$store.commit("toggleSlideshowInProgress", true);
+          this.$router.push("/dashboard/slideshow");
+          this.$notify({
+            title: "Slideshow",
+            text: "Slideshow has started",
+          });
           this.changeSlide();
-          console.log("next slide");
-        }, this.$store.state.intervalsBetweenSlides);
+          this.intervalInstance = setInterval(() => {
+            this.changeSlide();
+            console.log("next slide");
+          }, this.$store.state.intervalsBetweenSlides);
+        } else {
+          this.$notify({
+            title: "Slideshow error",
+            type: "warn",
+            text: "Slideshow is already in progress!",
+          });
+        }
       } else {
-        console.log("slideshow should contain at least 2 dashboards!");
+        this.$notify({
+          title: "Slideshow error",
+          type: "warn",
+          text: "Slideshow should contain at least 2 dashboards!",
+        });
       }
     },
     stopSlideShow() {
       if (this.$store.state.slideshowInProgress) {
+        EventBus.emit('change-slideshow-button-text', "Start slideshow")
         this.$notify({
           title: "Slideshow",
           text: "Slideshow has ended",
         });
+        this.$router.push(`/dashboard/${utils.normalizeTitleToUrl(this.currentDashboard.name)}`);
         clearInterval(this.intervalInstance);
+        this.intervalInstance = null;
         this.$store.commit("toggleSlideshowInProgress", false);
         this.$store.commit('resetCurrentSlide')
       }
@@ -93,7 +111,7 @@ export default {
       }
       this.linkItems = await response.json();
 
-      if (this.$route.params.name === 'initializing' || this.$route.params.name === 'edit') {
+      if (this.$route.params.name === 'initializing' || this.$route.params.name === 'edit' || this.$route.params.name === 'slideshow') {
         this.currentDashboard = this.linkItems[0];
         this.$router.push(`/dashboard/${utils.normalizeTitleToUrl(this.linkItems[0].name)}`);
       } else {
