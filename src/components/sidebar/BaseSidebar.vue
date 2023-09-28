@@ -146,8 +146,13 @@ export default {
   position: absolute;
   bottom: 0;
   left: 0;
+  opacity: 10%;
   width: 226px;
   z-index: 500;
+}
+
+.expand-button:hover {
+  opacity: 100%;
 }
 
 .collapse-button:hover {
