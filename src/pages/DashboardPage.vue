@@ -45,7 +45,7 @@ export default {
   methods: {
     changeSlide() {
       this.currentDashboard =
-        this.$store.state.dashboardsInSlideshow[this.$store.state.currentSlide];
+        this.$store.state.dashboardsInSlideshow[this.$store.state.currentSlide]; 
       this.$store.commit("incrementSlide");
     },
     startSlideShow() {

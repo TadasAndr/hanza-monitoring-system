@@ -179,6 +179,7 @@ video {
 }
 
 .accordion-content {
+  font-family: "Inter";
   margin: 10px 0;
 }
 
@@ -211,19 +212,16 @@ video {
   float: right !important;
 }
 
-/* Standard style when dropdown is present */
 .dropdown-content {
   overflow-y: hidden;
-  max-height: 300px; /* Adjust as needed */
+  max-height: 300px; 
   transition: max-height 0.5s ease-in-out;
 }
 
-/* During the entering phase */
 .dropdown-fade-enter-from {
   max-height: 0;
 }
 
-/* During the leaving (and also the initial state) */
 .dropdown-fade-leave-to {
   max-height: 0;
 }
