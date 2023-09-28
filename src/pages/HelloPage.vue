@@ -4,7 +4,9 @@
 
 <script>
 export default {
-    
+    beforeMount() {
+        this.$router.push('/dashboard/initializing');
+    }
 }
 </script>
 

@@ -56,11 +56,6 @@ export default {
     },
   },
   computed: {
-    normalizeRoute() {
-      return `/dashboard/${this.dashboardItem.name
-        .toLowerCase()
-        .replace(" ", "-")}`;
-    },
     isLinkActive() {
       return (
         this.$route.params.name ===
@@ -69,6 +64,11 @@ export default {
     },
     dashboardsInSlideshow() {
       return this.$store.state.dashboardsInSlideshow;
+    },
+    normalizeRoute() {
+      return `/dashboard/${this.dashboardItem.name
+        .toLowerCase()
+        .replace(" ", "-")}`;
     },
   },
   watch: {
