@@ -1,25 +1,10 @@
 <template>
   <base-sidebar :items="linkItems"></base-sidebar>
-  <div
-    v-for="item in linkItems"
-    :key="item.id"
-    v-show="currentDashboard?.id === item.id"
-  >
-    <iframe
-      style="margin: auto auto"
-      :title="item.name"
-      width="100%"
-      height="100%"
-      :src="item.reportLink"
-      frameborder="0"
-      allowFullScreen="true"
-    ></iframe>
+  <div v-for="item in linkItems" :key="item.id" v-show="currentDashboard?.id === item.id">
+    <iframe style="margin: auto auto" :title="item.name" width="100%" height="100%" :src="item.reportLink" frameborder="0"
+      allowFullScreen="true"></iframe>
   </div>
-  <div
-    v-if="this.$store.state.isSlideSelection"
-    style="margin: auto auto"
-    class="logo-animation"
-  >
+  <div v-if="this.$store.state.isSlideSelection" style="margin: auto auto" class="logo-animation">
     <img src="..\assets\hanza_logo.jpeg" alt="Logo" />
   </div>
 </template>
@@ -65,8 +50,8 @@ export default {
           name: "Bending",
           reportLink:
             "https://app.powerbi.com/reportEmbed?reportId=41b9a2ff-7274-466d-94e1-494c792ca9bd&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
-            imageSrc: "@/assets/bending.svg",
-          },
+          imageSrc: "@/assets/bending.svg",
+        },
         {
           id: 3,
           name: "Machining",
@@ -171,6 +156,17 @@ export default {
     EventBus.off("start-slideshow");
     EventBus.off("stop-slideshow");
   },
+  async beforeMount() {
+    try {
+      const response = await fetch('../reports.json');
+      if (!response.ok) {
+        throw new Error('Network response was not ok ' + response.statusText);
+      }
+      this.linkItems = await response.json();
+    } catch (error) {
+      console.error('There has been a problem with your fetch operation:', error);
+    }
+  },
 };
 </script>
 
@@ -181,10 +177,12 @@ export default {
 }
 
 @keyframes zoomInOut {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.2);
   }
