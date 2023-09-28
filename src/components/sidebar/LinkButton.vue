@@ -2,12 +2,12 @@
   <router-link v-if="!this.$store.state.isSlideSelection" :class="{ active: isLinkActive }" class="sidebar-button-nav"
     @click="stopSlideShow" :to="normalizeRoute">
     <span>{{ dashboardItem.name }}</span></router-link>
-  <button :class="{ machineSelected: isInSlideArray }" v-else @click="handleChange" class="DashboardContent a-button">
-    <span v-if="typeof currentSlideIndex === 'number' && currentSlideIndex >= 0">
-      {{ currentSlideIndex + 1 }}
-    </span>
+  <button :class="{ machineSelected: isInSlideArray }" v-else @click="handleChange" class="sidebar-button-nav a-button">
     <img :src=dashboardItem.imageSrc alt="" />
     {{ dashboardItem.name }}
+    <span style="position: absolute; left: 1rem; color: var(--hanza-green); font-weight: bold;" v-if="typeof currentSlideIndex === 'number' && currentSlideIndex >= 0">
+      {{ currentSlideIndex + 1 }}
+    </span>
   </button>
 </template>
 
@@ -90,7 +90,6 @@ export default {
   background-color: none;
   background: none;
   border: none;
-  padding: 0 4rem 0 0;
 }
 
 .machineSelected {
@@ -99,25 +98,24 @@ export default {
 }
 
 .sidebar-button-nav {
-    width: 100%;
-    height: 50px;
-    border: none;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-    font-family: "Inter";
-    text-align: center;
-    font-size: 16px;
-    color: rgb(185, 180, 199);
-    display: flex; /* Changed from block to flex */
-    align-items: center; /* Align items vertically in the center */
-    justify-content: center; /* Center content horizontally */
+  width: 100%;
+  height: 50px;
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Inter";
+  font-size: 16px;
+  color: rgb(185, 180, 199);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sidebar-button-nav:hover {
-    background-color: var(--hanza-blue);
-    color: white !important;
+  background-color: var(--hanza-blue);
+  color: white !important;
 }
 </style>

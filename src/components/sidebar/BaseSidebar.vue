@@ -12,8 +12,8 @@
           <label class="custom-font" for="interval">Interval (ms)</label>
           <input id="interval" type="number" v-model="intervalsBetweenSlides" />
         </div>
-        <label class="checkbox-container">
-          Select
+        <label class="checkbox-container mt-3">
+          <span style="z-index: 100;">Slide selection mode</span>
           <input :disabled="slideshowInProgress" type="checkbox" v-model="isChecked" @change="handleChange"
             class="checkbox-input" />
           <span class="checkbox-label"></span>
@@ -151,14 +151,14 @@ export default {
 }
 
 .collapse-button:hover {
-  background-color: var(--hanza-green);
+  background-color: var(--hanza-blue);
 }
 
 .sidebar-button {
   width: 100%;
   height: 50px;
-  background-color: #008CBA;
   border: none;
+  background: none;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -168,7 +168,7 @@ export default {
 }
 
 .sidebar-button:hover {
-  background-color: #005f5f;
+  background-color: var(--hanza-blue);
 }
 
 .checkbox-container {
@@ -178,9 +178,9 @@ export default {
   position: relative;
   width: 100%;
   height: 50px;
-  background-color: #ccc;
   color: #000;
   font-size: 16px;
+  color: white;
   cursor: pointer;
   text-align: center;
 }
@@ -202,10 +202,11 @@ export default {
 }
 
 .checkbox-container:hover {
-  background-color: #c1c1c1;
+  background-color: var(--hanza-blue);
 }
 
 .checkbox-container .checkbox-input:checked+.checkbox-label {
-  background-color: #008CBA;
+  background-color: var(--hanza-red);
+  color: white;
 }
 </style>
