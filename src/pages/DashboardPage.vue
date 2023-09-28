@@ -158,7 +158,7 @@ export default {
   },
   async beforeMount() {
     try {
-      const response = await fetch('../reports.json');
+      const response = await fetch('../reports-config.json');
       if (!response.ok) {
         throw new Error('Network response was not ok ' + response.statusText);
       }
