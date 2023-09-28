@@ -15,6 +15,17 @@
 <!-- <img src="@/assets/Documentaton/1.png"> -->
 ![img](/src/assets/Documentaton/1.png)
 
-<p class='standartParagraph'></p>
+<p class='standartParagraph'>Web application was made to select the 11 different machines and display the appropriate data for the selected machine. </p>
+
+![img](/src/assets/Documentaton/2.png)
+
+<p class='standartParagraph'>The web application has the abbility to select different machines and display their data as a slideshow. The user can select how frequently the slides should change using miliseconds.</p>
+
+![img](/src/assets/Documentaton/3.png)
+
+
+
+
+
 
 
