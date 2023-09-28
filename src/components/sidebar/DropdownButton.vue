@@ -8,7 +8,7 @@
           <img class="dropdownArrow" :class="{ isExpanded: isExpanded }" src="@/assets/dropdownArrow.png"
             alt="Dropdown Arrow" @click="toggleExpanded" />
         </div>
-        <i :class="['icon', isExpanded ? 'icon-minus' : 'icon-plus']"></i>
+        <i :class="['icon', isExpanded ? 'icon-minus' : 'icon-plus']"></i>,,a
       </div>
       <transition name="dropdown-fade">
         <div v-if="isExpanded" class="accordion-content">
