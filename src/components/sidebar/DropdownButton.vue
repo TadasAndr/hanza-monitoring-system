@@ -207,9 +207,8 @@ video {
   margin-left: 30px;
   pointer-events: none;
   float:right;
-
-
 }
+
 .isExpanded {
   transform: rotate(180deg);
   transition: transform 0s;

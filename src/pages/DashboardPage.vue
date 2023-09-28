@@ -57,57 +57,57 @@ export default {
           id: 1,
           name: "Plasma",
           reportLink:
-            "https://app.powerbi.com/reportEmbed?reportId=44b9c8ce-7eb1-4532-99b8-6c95bb32cf7e&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=plasma",
+            "https://app.powerbi.com/reportEmbed?reportId=747670b3-1b9f-45d2-9af1-6de58cc57398&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
           imageSrc: "@/assets/plasma.svg",
         },
         {
           id: 2,
           name: "Bending",
           reportLink:
-            "https://app.powerbi.com/reportEmbed?reportId=44b9c8ce-7eb1-4532-99b8-6c95bb32cf7e&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=bending",
+            "https://app.powerbi.com/reportEmbed?reportId=41b9a2ff-7274-466d-94e1-494c792ca9bd&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
             imageSrc: "@/assets/bending.svg",
           },
         {
           id: 3,
           name: "Machining",
           reportLink:
-            "https://app.powerbi.com/reportEmbed?reportId=44b9c8ce-7eb1-4532-99b8-6c95bb32cf7e&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=machining",
+            "https://app.powerbi.com/reportEmbed?reportId=6d44e115-cb39-49fd-a48b-1f2c9320e6cf&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
           imageSrc: "@/assets/Machining.svg",
         },
         {
           id: 4,
           name: "Welding",
-          reportLink: "https://app.powerbi.com/reportEmbed?reportId=b5815e86-ad20-4202-872e-235a545e7f78&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=Welding",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=2421c5ce-630c-4585-8c1c-ba4ff8bc9bb3&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
           imageSrc: "@/assets/Welding.svg",
         },
         {
           id: 5,
           name: "Wet Paint",
-          reportLink: "https://app.powerbi.com/reportEmbed?reportId=b5815e86-ad20-4202-872e-235a545e7f78&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=WetPaint",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=aed9a907-6ffb-4596-93c7-cf964bbd3930&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
           imageSrc: "@/assets/Paint.svg",
         },
         {
           id: 6,
           name: "Powder Paint",
-          reportLink: "https://app.powerbi.com/reportEmbed?reportId=b5815e86-ad20-4202-872e-235a545e7f78&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=PowderPaint",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=54625cad-e07f-48f0-8588-6a4df58188af&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
           imageSrc: "@/assets/Paint.svg",
         },
         {
           id: 7,
           name: "Assembly",
-          reportLink: "https://app.powerbi.com/reportEmbed?reportId=9096e9d3-9ce6-42ee-a0d0-85d997c6d223&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=273a3a46-43bf-4cb3-91a7-95f69e55a4b3&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
           imageSrc: "@/assets/assembly.svg",
         },
         {
           id: 8,
           name: "Blast",
-          reportLink: "https://app.powerbi.com/reportEmbed?reportId=0e895359-499e-4de1-a95b-44a829ff4bd9&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=blast",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=3702ac4f-32b7-40f7-9370-909452b2928f&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
           imageSrc: "@/assets/Blast.svg",
         },
         {
           id: 9,
           name: "Old Blast",
-          reportLink: "https://app.powerbi.com/reportEmbed?reportId=0e895359-499e-4de1-a95b-44a829ff4bd9&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=oldblast",
+          reportLink: "https://app.powerbi.com/reportEmbed?reportId=233a34ac-466d-427d-8be0-a2f4ba1e48aa&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
           imageSrc: "@/assets/Blast.svg",
         },
         {
@@ -120,7 +120,7 @@ export default {
           id: 11,
           name: "Laser",
           reportLink:
-            "https://app.powerbi.com/reportEmbed?reportId=44b9c8ce-7eb1-4532-99b8-6c95bb32cf7e&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57&pageName=laser",
+            "https://app.powerbi.com/reportEmbed?reportId=39740316-bc01-4de0-89f4-7ed11e5f6fa1&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
         }
       ],
     };

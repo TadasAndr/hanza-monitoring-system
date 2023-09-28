@@ -30,6 +30,9 @@
         </button>
       </div>
     </dropdown-button>
+    <button class="" style="width: 3rem; height: 3rem; width: 100%; background-color: green; border: none; border-radius: 3px;">
+      <img src="@/assets/dropdownArrow.png" class="dropdownArrow arrow-rotate-close">
+    </button>
   </div>
 </template>
 
@@ -104,5 +107,13 @@ export default {
   background-color: rgb(26, 43, 76);
   height: 100vh;
   width: 226px;
+}
+
+.arrow-rotate-close {
+  transform: rotate(90deg)
+}
+
+.arrow-rotate-open {
+  transform: rotate(-90deg)
 }
 </style>
