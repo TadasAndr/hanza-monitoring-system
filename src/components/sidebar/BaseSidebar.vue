@@ -14,8 +14,7 @@
         </div>
         <label class="checkbox-container mt-3">
           <span style="z-index: 100;">Slide selection mode</span>
-          <input :disabled="slideshowInProgress" type="checkbox" v-model="isChecked" @change="handleChange"
-            class="checkbox-input" />
+          <input type="checkbox" :disabled="slideshowInProgress" v-model="isChecked" @change="handleChange" class="checkbox-input" />
           <span class="checkbox-label"></span>
         </label>
         <button type="button" @click="toggleSlideshow" class="sidebar-button">
@@ -54,18 +53,19 @@ export default {
   },
   methods: {
     handleChange() {
-      this.$store.commit("toggleSlideSelection", this.isChecked);
+      if (!this.slideshowInProgress) {
+        this.$store.commit("toggleSlideSelection", this.isChecked);
 
-      if (this.isChecked) {
-        EventBus.emit('open-dropdown')
-        if (this.$route.path !== "/dashboard/edit") {
-          this.lastPath = this.$route.path;
+        if (this.isChecked) {
+          EventBus.emit('open-dropdown')
+          if (this.$route.path !== "/dashboard/edit") {
+            this.lastPath = this.$route.path;
+          }
+          this.$router.push("/dashboard/edit");
+        } else {
+          this.lastPath ? this.$router.push(this.lastPath) : this.$router.go(-1);
         }
-        this.$router.push("/dashboard/edit");
-      } else {
-        this.lastPath ? this.$router.push(this.lastPath) : this.$router.go(-1);
       }
-      console.log(this.lastPath);
     },
     toggleSlideshow() {
       if (this.slideshowInProgress) {

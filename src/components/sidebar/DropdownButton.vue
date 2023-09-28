@@ -27,7 +27,7 @@ import { EventBus } from '@/event-bus';
 export default {
   data() {
     return {
-      isExpanded: false,
+      isExpanded: true,
     };
   },
   props: {
@@ -179,7 +179,6 @@ video {
 }
 
 .accordion-content {
-  font-family: "Inter";
   margin: 10px 0;
 }
 
