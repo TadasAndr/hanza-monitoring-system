@@ -55,12 +55,6 @@
   },
   {
     "id": 10,
-    "name": "Tank Wash",
-    "reportLink": "https://app.powerbi.com/reportEmbed?reportId=b8c31e22-ae4c-4ccf-ae28-7a751d33a386&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57",
-    "imageSrc": "@/assets/Washer.svg"
-  },
-  {
-    "id": 11,
     "name": "Laser",
     "reportLink": "https://app.powerbi.com/reportEmbed?reportId=39740316-bc01-4de0-89f4-7ed11e5f6fa1&autoAuth=true&ctid=3efd4d88-9b88-4fc9-b6c0-c7ca50f1db57"
   }
