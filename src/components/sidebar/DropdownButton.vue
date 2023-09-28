@@ -227,4 +227,11 @@ video {
 .dropdown-fade-leave-to {
   max-height: 0;
 }
+
+.isExpanded {
+  transform: rotate(180deg);
+  transition: transform 0s;
+  vertical-align: top;
+  pointer-events: none;
+}
 </style>
