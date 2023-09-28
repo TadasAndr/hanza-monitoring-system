@@ -4,6 +4,13 @@
       <img class="hanzaLogo" src="@/assets/HanzaLogo.svg" alt="Hanza Logo" />
     </div>
     <dropdown-button name="Dashboards">
+      <link-button
+        active-class="active-link"
+        v-for="item in items"
+        :key="item.id"
+        :dashboardItem="item"
+        
+      ></link-button>
       <link-button active-class="active-link" v-for="item in items" :key="item.id" :dashboardItem="item"></link-button>
     </dropdown-button>
     <dropdown-button name="Slideshow">
