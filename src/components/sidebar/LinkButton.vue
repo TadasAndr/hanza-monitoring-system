@@ -1,23 +1,12 @@
 <template>
-  <router-link
-    v-if="!this.$store.state.isSlideSelection"
-    :class="{ active: isLinkActive }"
-    class="DashboardContent"
-    @click="stopSlideShow"
-    :to="normalizeRoute"
-  >
-    {{ dashboardItem.name }}</router-link
-  >
-  <button
-    :class="{ machineSelected: isInSlideArray }"
-    v-else
-    @click="handleChange"
-    class="DashboardContent a-button"
-  >
-  <span v-if="typeof currentSlideIndex === 'number' && currentSlideIndex >= 0">
-    {{ currentSlideIndex + 1 }}
-  </span>
-  <img :src=dashboardItem.imageSrc alt=""/>
+  <router-link v-if="!this.$store.state.isSlideSelection" :class="{ active: isLinkActive }" class="sidebar-button-nav"
+    @click="stopSlideShow" :to="normalizeRoute">
+    <span>{{ dashboardItem.name }}</span></router-link>
+  <button :class="{ machineSelected: isInSlideArray }" v-else @click="handleChange" class="DashboardContent a-button">
+    <span v-if="typeof currentSlideIndex === 'number' && currentSlideIndex >= 0">
+      {{ currentSlideIndex + 1 }}
+    </span>
+    <img :src=dashboardItem.imageSrc alt="" />
     {{ dashboardItem.name }}
   </button>
 </template>
@@ -93,9 +82,8 @@ export default {
 
 <style scoped>
 .active {
-  border-right: 6px solid var(--hanza-red);
-  border-radius: 5px;
-  color: var(--hanza-red) !important;
+  background-color: var(--hanza-red);
+  color: white !important;
 }
 
 .a-button {
@@ -108,5 +96,28 @@ export default {
 .machineSelected {
   padding-left: 3px;
   border-left: 3px solid var(--hanza-green);
+}
+
+.sidebar-button-nav {
+    width: 100%;
+    height: 50px;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "Inter";
+    text-align: center;
+    font-size: 16px;
+    color: rgb(185, 180, 199);
+    display: flex; /* Changed from block to flex */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: center; /* Center content horizontally */
+}
+
+.sidebar-button-nav:hover {
+    background-color: var(--hanza-blue);
+    color: white !important;
 }
 </style>

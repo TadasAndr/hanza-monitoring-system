@@ -8,15 +8,16 @@
     </dropdown-button>
     <dropdown-button name="Slideshow">
       <div class="d-flex flex-column align-items-center justify-content-center">
-        <label class="checkbox-container">
-          Select
-          <input :disabled="slideshowInProgress" type="checkbox" v-model="isChecked" @change="handleChange" class="checkbox-input" />
-          <span class="checkbox-label"></span>
-        </label>
         <div class="mt-3 d-flex flex-column">
           <label class="custom-font" for="interval">Interval (ms)</label>
           <input id="interval" type="number" v-model="intervalsBetweenSlides" />
         </div>
+        <label class="checkbox-container">
+          Select
+          <input :disabled="slideshowInProgress" type="checkbox" v-model="isChecked" @change="handleChange"
+            class="checkbox-input" />
+          <span class="checkbox-label"></span>
+        </label>
         <button type="button" @click="startSlideShow" class="sidebar-button">
           Start slideshow
         </button>
@@ -163,7 +164,6 @@ export default {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
 }
 
@@ -207,4 +207,5 @@ export default {
 
 .checkbox-container .checkbox-input:checked+.checkbox-label {
   background-color: #008CBA;
-}</style>
+}
+</style>
