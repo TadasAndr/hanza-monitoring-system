@@ -9,9 +9,7 @@
         v-for="item in items"
         :key="item.id"
         :dashboardItem="item"
-        
       ></link-button>
-      <link-button active-class="active-link" v-for="item in items" :key="item.id" :dashboardItem="item"></link-button>
     </dropdown-button>
     <dropdown-button name="Slideshow">
       <div class="d-flex flex-column align-items-center justify-content-center">

@@ -14,8 +14,6 @@
 import BaseSidebar from "../components/sidebar/BaseSidebar.vue";
 import { EventBus } from "@/event-bus";
 
-
-
 export default {
   components: {
     BaseSidebar,
@@ -122,7 +120,6 @@ export default {
 }
 
 @keyframes zoomInOut {
-
   0%,
   100% {
     transform: scale(1);
