@@ -3,7 +3,7 @@
     <div class="accordion-item">
       <div class="accordion-header" @click="toggleExpanded">
         <div class="header-content">
-          <img class="DashboardIcon" src="@/assets/DashboardIcon.png" alt="Hanza Logo" />
+          <img class="DashboardIcon" :src="iconPath" alt="Hanza Logo" />
           <span class="custom-font">{{ name }}</span>
           <img class="dropdownArrow" :class="{ isExpanded: isExpanded }" src="@/assets/dropdownArrow.png"
             alt="Dropdown Arrow" @click="toggleExpanded" />
@@ -176,6 +176,7 @@ video {
   margin-right: 10px;
   vertical-align: bottom;
   height: 20px;
+  color: white;
 }
 
 .accordion-content {

@@ -3,10 +3,10 @@
     <div class="logoDiv">
       <img class="hanzaLogo" src="@/assets/HanzaLogo.svg" alt="Hanza Logo" />
     </div>
-    <dropdown-button name="Dashboards">
+    <dropdown-button :iconPath="dashboardIcon" name="Dashboards">
       <link-button active-class="active-link" v-for="item in items" :key="item.id" :dashboardItem="item"></link-button>
     </dropdown-button>
-    <dropdown-button name="Slideshow">
+    <dropdown-button :iconPath="slideshowIcon" name="Slideshow">
       <div class="d-flex flex-column align-items-center justify-content-center">
         <div class="mt-3 d-flex flex-column">
           <label class="custom-font" for="interval">Interval (ms)</label>
@@ -43,12 +43,16 @@ import DropdownButton from "./DropdownButton.vue";
 
 import { EventBus } from "@/event-bus";
 
+
+
 export default {
   data() {
     return {
       isChecked: false,
       lastPath: null,
-      slideshowButtonText: "Start slideshow"
+      slideshowButtonText: "Start slideshow",
+      dashboardIcon: require('@/assets/DashboardIcon.png'),
+      slideshowIcon: require('@/assets/slideshow.png')
     };
   },
   methods: {
