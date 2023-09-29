@@ -12,14 +12,13 @@
 
 <p class='standartParagraph'>At the start of the project, we recieved an Excel file with data provided from HANZA. All the data was put into a program called Power BI. It consisted of 10 different types of departments, which had 6 different types of graphs. Power BI offers data visualization feature, which we used to display it in our web application using "iframe" tag.</p>
 
-<!-- <img src="@/assets/Documentaton/1.png"> -->
 ![img](/src/assets/Documentaton/1.png)
 
 <p class='standartParagraph'>The web application was made to select the 10 different departments and display the appropriate data for the selected departments </p>
 
 ![img](/src/assets/Documentaton/2.png)
 
-<p class='standartParagraph'>The web application has the ability to select different department and display their data as a slideshow. The user can select how frequently the slides should change using milliseconds.</p>
+<p class='standartParagraph'>The web application has the ability to select different departments and display their data as a slideshow. The user can select how frequently the slides should change using milliseconds.</p>
 
 ![img](/src/assets/Documentaton/3.png)
 
@@ -40,9 +39,9 @@
 
 ![img](/src/assets/Documentaton/6.png)
 
+<p class='paragraphName'>How to use our website:</p>
 
-
-
+<p class='standartParagraph'>When the user opens the website, He's transferred to the first dashboard element. User needs to log in to Power BI account. When user has logged in, </p>
 
 
 
