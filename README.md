@@ -55,5 +55,44 @@
 
 ![img](/src/assets/Documentation/fullscreendisplay.png)
 
+<h1>Set up development environment to make changes:</h1>
+<p class='standartParagraph'>Prerequisites</p>
+<ul>
+<li>
+Git
+</li>
+<li>
+Node package manager
+</li>
+<li>
+Node.js
+</li>
+</ul>
+<p class='standartParagraph'>Installing node.js and node package manager <a href="https://nodejs.org/en">Node.js download page</a></p>
+<p class='standartParagraph'>Check if they are installed on your system via terminal:</p>
+<ul>
+<li>
+<strong>node -v</strong>
+</li>
+<li>
+<strong>npm -v</strong>
+</li>
+</ul>
+<p class='standartParagraph'>Install Vue CLI:</p>
+<p class='standartParagraph'>In your terminal: <strong>npm install -g @vue/cli</strong></p>
+<p class='standartParagraph'>Check installation: <strong>vue --version</strong></p>
+<p class='standartParagraph'>Clone the project from Github:</p>
+<ul>
+<li>
+git clone https://github.com/TadasAndr/hanza-monitoring-system.git
+</li>
+<li>
+Go to project's directory via terminal and run: <strong>npm install</strong>
+</li>
+<li>
+When installing finishes run using: <strong>npm run serve</strong>
+</li>
+</ul>
+
 
 
