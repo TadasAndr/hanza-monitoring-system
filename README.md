@@ -55,5 +55,22 @@
 
 ![img](/src/assets/Documentation/fullscreendisplay.png)
 
+<h1>Set up development environment to make changes:</h1>
+
+<p class='standartParagraph'>Installing node.js and node package manager <a href="https://nodejs.org/en">Node.js download page</a></p>
+<p class='standartParagraph'>Check if they are installed on your system:</p>
+<ul>
+<li>
+node -v
+</li>
+<li>
+npm -v
+</li>
+</ul>
+<p class='standartParagraph'>Install Vue CLI:</p>
+<p class='standartParagraph'>In your terminal: npm install -g @vue/cli</p>
+<p class='standartParagraph'>Check installation: vue --version</p>
+
+
 
 
