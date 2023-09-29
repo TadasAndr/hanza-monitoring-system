@@ -1,8 +1,8 @@
 <template>
   <base-sidebar :items="linkItems"></base-sidebar>
   <div v-for="item in linkItems" :key="item.id" v-show="currentDashboard?.id === item.id">
-    <iframe style="margin: auto auto" :title="item.name" width="100%" height="100%" :src="item.reportLink" frameborder="0"
-      allowFullScreen="true"></iframe>
+    <iframe style="margin: auto auto" :title="item.name" width="100%" height="100%"
+      :src="item.reportLink" frameborder="0" allowFullScreen="true"></iframe>
   </div>
   <div v-if="this.$store.state.isSlideSelection" style="margin: auto auto" class="logo-animation">
     <img src="..\assets\hanza_logo.jpeg" alt="Logo" />
@@ -46,7 +46,7 @@ export default {
     changeSlide() {
       console.log('changeSlide called');
       this.currentDashboard =
-        this.$store.state.dashboardsInSlideshow[this.$store.state.currentSlide]; 
+        this.$store.state.dashboardsInSlideshow[this.$store.state.currentSlide];
       this.$store.commit("incrementSlide");
     },
     startSlideShow() {
@@ -136,6 +136,7 @@ export default {
 }
 
 @keyframes zoomInOut {
+
   0%,
   100% {
     transform: scale(1);
