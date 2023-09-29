@@ -24,14 +24,14 @@
     </dropdown-button>
     <div style="position: absolute; bottom: 0; width: 226px;">
       <button @click="collapseSidebar" class="collapse-button">
-        <span class="custom-font fw-bold">Collapse</span>
+        <span class="custom-font fw-bold">Fullscreen</span>
         <img src="@/assets/dropdownArrow.png" class="dropdownArrow arrow-rotate-close">
       </button>
     </div>
   </div>
   <div v-if="isSidebarCollapsed">
     <button @click="expandSidebar" class="expand-button collapse-button">
-      <span class="custom-font fw-bold">Expand</span>
+      <span class="custom-font fw-bold">Exit fullscreen</span>
       <img src="@/assets/dropdownArrow.png" class="dropdownArrow arrow-rotate-open">
     </button>
   </div>
