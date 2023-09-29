@@ -14,16 +14,15 @@
         </div>
         <label class="checkbox-container mt-3">
           <span style="z-index: 100;">Slide selection mode</span>
-          <input :disabled="slideshowInProgress" type="checkbox" v-model="isChecked" @change="handleChange"
-            class="checkbox-input" />
+          <input type="checkbox" :disabled="slideshowInProgress" v-model="isChecked" @change="handleChange" class="checkbox-input" />
           <span class="checkbox-label"></span>
         </label>
-        <button type="button" @click="startSlideShow" class="sidebar-button">
-          Start slideshow
+        <button type="button" @click="toggleSlideshow" class="sidebar-button">
+          {{ slideshowButtonText }}
         </button>
       </div>
     </dropdown-button>
-    <div v-if="slideshowInProgress" style="position: absolute; bottom: 0; width: 226px;">
+    <div style="position: absolute; bottom: 0; width: 226px;">
       <button @click="collapseSidebar" class="collapse-button">
         <span class="custom-font fw-bold">Collapse</span>
         <img src="@/assets/dropdownArrow.png" class="dropdownArrow arrow-rotate-close">
@@ -49,25 +48,31 @@ export default {
     return {
       isChecked: false,
       lastPath: null,
+      slideshowButtonText: "Start slideshow"
     };
   },
   methods: {
     handleChange() {
-      this.$store.commit("toggleSlideSelection", this.isChecked);
+      if (!this.slideshowInProgress) {
+        this.$store.commit("toggleSlideSelection", this.isChecked);
 
-      if (this.isChecked) {
-        EventBus.emit('open-dropdown')
-        if (this.$route.path !== "/dashboard/edit") {
-          this.lastPath = this.$route.path;
+        if (this.isChecked) {
+          EventBus.emit('open-dropdown')
+          if (this.$route.path !== "/dashboard/edit") {
+            this.lastPath = this.$route.path;
+          }
+          this.$router.push("/dashboard/edit");
+        } else {
+          this.lastPath ? this.$router.push(this.lastPath) : this.$router.go(-1);
         }
-        this.$router.push("/dashboard/edit");
-      } else {
-        this.lastPath ? this.$router.push(this.lastPath) : this.$router.go(-1);
       }
-      console.log(this.lastPath);
     },
-    startSlideShow() {
-      EventBus.emit('start-slideshow');
+    toggleSlideshow() {
+      if (this.slideshowInProgress) {
+        EventBus.emit('stop-slideshow');
+      } else {
+        EventBus.emit('start-slideshow');
+      }
     },
     collapseSidebar() {
       this.$store.commit('setIsSidebarCollapsed', true)
@@ -92,6 +97,13 @@ export default {
       return this.$store.state.isSidebarCollapsed;
     }
   },
+  watch: {
+    slideshowInProgress: {
+      handler() {
+        this.isChecked = false;
+      }
+    }
+  },
   props: {
     items: {
       type: Array,
@@ -102,6 +114,14 @@ export default {
     DropdownButton,
     LinkButton,
   },
+  mounted() {
+    EventBus.on("change-slideshow-button-text", (text) => {
+      this.slideshowButtonText = text;
+    })
+  },
+  beforeUnmount() {
+    EventBus.off("change-slideshow-button-text");
+  }
 };
 </script>
 
@@ -123,6 +143,7 @@ export default {
   background-color: var(--hanza-dark-blue);
   height: 100vh;
   width: 226px;
+  overflow-y: auto;
 }
 
 .arrow-rotate-close {
