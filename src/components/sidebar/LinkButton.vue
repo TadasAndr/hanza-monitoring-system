@@ -1,11 +1,20 @@
 <template>
   <router-link v-if="!this.$store.state.isSlideSelection" :class="{ active: isLinkActive }" class="sidebar-button-nav"
     @click="stopSlideShow" :to="normalizeRoute">
-    <span>{{ dashboardItem.name }}</span></router-link>
-  <button :class="{ machineSelected: isInSlideArray }" v-else @click="handleChange" class="sidebar-button-nav a-button">
-    <img :src=dashboardItem.imageSrc alt="" />
-    {{ dashboardItem.name }}
-    <span style="position: absolute; left: 1rem; color: var(--hanza-green); font-weight: bold;" v-if="typeof currentSlideIndex === 'number' && currentSlideIndex >= 0">
+    <img style="width: 1rem; fill: white; margin-left: 6px;" class="me-1" :src=svgImg />
+      <span>
+        {{ dashboardItem.name }}
+      </span></router-link>
+  <button :class="{ machineSelected: isInSlideArray }" v-else @click="handleChange"
+    class="sidebar-button-nav a-button d-flex flex-row justify-content-between pe-2">
+    <div>
+      <img style="width: 1rem; fill: white; margin-left: 6px;" class="me-1" :src=svgImg />
+      <span>
+        {{ dashboardItem.name }}
+      </span>
+    </div>
+    <span style="color: var(--hanza-green); font-weight: bold; padding-left: 10px;" class="me-1"
+      v-if="typeof currentSlideIndex === 'number' && currentSlideIndex >= 0">
       {{ currentSlideIndex + 1 }}
     </span>
   </button>
@@ -19,8 +28,12 @@ export default {
     return {
       isChecked: false,
       isInSlideArray: false,
-      currentSlideIndex: null
+      currentSlideIndex: null,
+      svgImg: null,
     };
+  },
+  beforeMount() {
+    this.svgImg = process.env.BASE_URL + 'images/' + this.dashboardItem.imageSrc;
   },
   props: {
     dashboardItem: {
@@ -110,8 +123,8 @@ export default {
   font-size: 16px;
   color: rgb(185, 180, 199);
   display: flex;
+  padding: 0;
   align-items: center;
-  justify-content: center;
 }
 
 .sidebar-button-nav:hover {

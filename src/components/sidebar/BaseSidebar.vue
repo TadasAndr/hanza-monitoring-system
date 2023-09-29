@@ -52,7 +52,7 @@ export default {
       lastPath: null,
       slideshowButtonText: "Start slideshow",
       dashboardIcon: require('@/assets/DashboardIcon.png'),
-      slideshowIcon: require('@/assets/slideshow.png')
+      slideshowIcon: require('@/assets/slidesho.png')
     };
   },
   methods: {
@@ -190,7 +190,6 @@ export default {
   border: none;
   background: none;
   color: white;
-  text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
