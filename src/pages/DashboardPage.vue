@@ -64,7 +64,7 @@ export default {
           this.intervalInstance = setInterval(() => {
             this.changeSlide();
             console.log("next slide");
-          }, this.$store.state.intervalsBetweenSlides);
+          }, this.$store.state.intervalsBetweenSlides * 1000);
         } else {
           this.$notify({
             title: "Slideshow error",

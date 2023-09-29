@@ -9,8 +9,8 @@
     <dropdown-button :iconPath="slideshowIcon" name="Slideshow">
       <div class="d-flex flex-column align-items-center justify-content-center">
         <div class="mt-3 d-flex flex-column">
-          <label class="custom-font" for="interval">Interval (ms)</label>
-          <input id="interval" type="number" v-model="intervalsBetweenSlides" />
+          <label class="custom-font" for="interval">Interval</label>
+          <input id="interval" type="number" placeholder="seconds" v-model="intervalsBetweenSlides" />
         </div>
         <label class="checkbox-container mt-3">
           <span style="z-index: 100;">Slide selection mode</span>
