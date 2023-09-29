@@ -41,7 +41,7 @@
 
 <p class='paragraphName'>How to use our website:</p>
 
-<p class='standartParagraph'>When the user opens the website, He's transferred to the first dashboard element.The user needs to log in to Power BI account and when the user has logged in, he'll start seeing that department's diagrams. In the left side of the screen the user sees a sidebar, which consists of "Dashboard" and "Slideshow" buttons and has a dropdown functionality. "Dashboard" has 10 different departments and different data, "Slideshow" has the functionality to start displaying data. To display data in slideshow format, the user can adjust the slideshow time in milliseconds, then the user needs to press the "Slide selection mode", which lets the user select the desired dashboards. When the dashboard is selected, it will display a number on the left of the dashboard name. </p>
+<p class='standartParagraph'>When the user opens the website, He's transferred to the first dashboard element.The user needs to log in to Power BI account and when the user has logged in, he'll start seeing that department's diagrams. In the left side of the screen the user sees a sidebar, which consists of "Dashboard" and "Slideshow" buttons and has a dropdown functionality. "Dashboard" has 10 different departments and different data, "Slideshow" has the functionality to start displaying data. To display data in slideshow format, the user can adjust the slideshow time in milliseconds, then the user needs to press the "Slide selection mode", which lets the user select the desired dashboards. When the dashboard is selected, it will display a number on the right of the dashboard name. </p>
 
 ![img](/src/assets/Documentation/8.png)
 
@@ -50,5 +50,8 @@
 
 ![img](/src/assets/Documentation/6.png)
 
-<p class='standartParagraph'>To stop the slideshow, user need to simply press on one of the dashboard departments</p>
+<p class='standartParagraph'>To stop the slideshow, user need to simply press on one of the dashboard departments.</p>
+<p class='standartParagraph'>Full screen functionality</p>
+
+
 
