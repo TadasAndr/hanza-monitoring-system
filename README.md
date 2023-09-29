@@ -48,10 +48,12 @@
 <p class='standartParagraph'>After selecting all the data that needs to be displayed, the user needs to press "Start slideshow". The User can collapse the sidebar when  full screen mode is enabled and the sidebar will expand after exiting full screen mode.</p>
 
 
-![img](/src/assets/Documentation/6.png)
+![img](/src/assets/Documentation/fullscreen.png)
 
 <p class='standartParagraph'>To stop the slideshow, user needs to simply press on one of the dashboard departments.</p>
 <p class='standartParagraph'>Full screen functionality</p>
+
+![img](/src/assets/Documentation/fullscreendisplay.png)
 
 
 
