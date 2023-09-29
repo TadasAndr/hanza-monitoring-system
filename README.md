@@ -50,7 +50,7 @@
 
 ![img](/src/assets/Documentation/fullscreen.png)
 
-<p class='standartParagraph'>To stop the slideshow, user needs to simply press on one of the dashboard departments.</p>
+<p class='standartParagraph'>To stop the slideshow, user needs to simply press the "Stop slidehow" button.</p>
 <p class='standartParagraph'>Full screen functionality</p>
 
 ![img](/src/assets/Documentation/fullscreendisplay.png)
