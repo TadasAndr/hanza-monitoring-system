@@ -4,7 +4,7 @@ export default createStore({
   state: {
     isSlideSelection: false,
     dashboardsInSlideshow: [],
-    intervalsBetweenSlides: 2000,
+    intervalsBetweenSlides: 2,
     slideshowInProgress: false,
     isSidebarCollapsed: false,
     currentSlide: 0,
